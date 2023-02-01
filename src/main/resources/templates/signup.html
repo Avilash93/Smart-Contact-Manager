@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+</head>
+<body>
+	<section>
+
+		<section
+			class="banner  d-flex justify-content-center align-items-center">
+
+			<div class="container text-white ">
+				<div class="row">
+					<div class="col-md-4 offset-md-4">
+
+						<form novalidate th:action="@{/do-register}" method="post"
+							th:object="${user}" id="signup-form">
+
+							<h3 class="text-center mb-4">Sign Up!</h3>
+							<div class="mb-2">
+								<input type="text" class="form-control " id="userName"
+									placeholder="Name" name="name" th:value="${user.name}"
+									th:classappend="${#fields.hasErrors('name') ? 'is-invalid':''}">
+								<div id="validationServer03Feedback" class="invalid-feedback"
+									th:each="e : ${#fields.errors('name')}" th:text="${e}"></div>
+							</div>
+							<div class="mb-2">
+								<input type="email" class="form-control" id="userEmail"
+									aria-describedby="emailHelp" placeholder="Email" name="email"
+									th:value="${user.email}"
+									th:classappend="${#fields.hasErrors('email') ? 'is-invalid':''}">
+								<div id="validationServer03Feedback" class="invalid-feedback"
+									th:each="e : ${#fields.errors('email')}" th:text="${e}">
+								</div>
+							</div>
+							<div class="mb-3">
+								<input type="password" class="form-control" id="userPassword"
+									placeholder="Password" name="password"
+									th:value="${user.password}"
+									th:classappend="${#fields.hasErrors('password') ? 'is-invalid':''}">
+								<div id="validationServer03Feedback" class="invalid-feedback"
+									th:each="e : ${#fields.errors('password')}" th:text="${e}">
+								</div>
+							</div>
+							<div class="mb-3 form-check">
+								<input type="checkbox" class="form-check-input"
+									id="exampleCheck1" name="agreement"> <label
+									class="form-check-label" for="exampleCheck1">Must agree
+									terms & condition</label>
+							</div>
+							<div class="d-grid mb-1 ">
+								<button type="submit" class="btn bg-primary ">Submit</button>
+							</div>
+							<!-- Second div  -->
+							<div class=" text-center">
+								<span>Already have an account? <a href="#">Login</a>
+								</span>
+							</div>
+							<!-- Alert message START -->
+							<div th:if="${session.msg}" th:classappend="${session.msg.type}"
+								class="alert " role="alert">
+								<p th:text="${session.msg.content}"></p>
+								<th:block th:text="${httpSession.removeAttribute('msg')}">
+								</th:block>
+							</div>
+							<!-- Alert message END -->
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+	</section>
+</body>
+</html>

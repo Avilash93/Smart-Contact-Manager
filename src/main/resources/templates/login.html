@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html  xmlns:th="http://www.thymeleaf.org" th:replace="~{base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+<section
+			class="banner  d-flex justify-content-center align-items-center">
+
+			<div class="container text-white ">
+				<div class="row">
+					<div class="col-md-4 offset-md-4">
+
+						<form novalidate th:action="@{/signin}" method="post"
+							id="login-form">
+
+							<h3 class="text-center mb-4">Sign in!</h3>
+							<div th:if="${param.error}" class="alert alert-danger">
+							Invalid username and password
+							</div>
+							<div th:if="${param.logout}" class="alert alert-success">
+							You have been logged out
+							</div>
+							<div class="mb-2">
+								<input type="text" class="form-control" id="username"
+									aria-describedby="emailHelp" placeholder="Email" name="username"
+									>
+							</div>
+							<div class="mb-3">
+								<input type="password" class="form-control" id="password"
+									placeholder="Password" name="password">
+							</div>
+							
+							<div class="d-grid mb-1 ">
+								<button type="submit" class="btn bg-primary ">Submit</button>
+							</div>
+							<!-- Second div  -->
+							<div class=" text-center">
+								<span>Didn't have an account? <a th:href="@{/sigin}">Register hear</a>
+								</span>
+							</div>
+						
+						</form>
+
+
+					</div>
+				</div>
+			</div>
+		</section>
+</body>
+</html>

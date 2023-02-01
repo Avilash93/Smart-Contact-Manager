@@ -1,0 +1,55 @@
+@charset "ISO-8859-1";
+/* User dash-board related CSS */
+.sidebar{
+	width: 18%;
+	height: 100%;
+	position: fixed;
+	padding-top: 20px;
+	margin-top:1px;	
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+    
+	
+}
+/* css for small size screen (MOBILE) */
+@media only screen and (max-width:600px){
+	.sidebar{
+	display:none;
+	width: 80%;
+	height: 100%;
+	position: fixed;
+	padding-top: 20px;
+	margin-top:1px;	
+    background-color: rgba(255,255,255,0.13);
+    border-radius: 10px;
+    backdrop-filter: blur(10px);
+    border: 2px solid rgba(255,255,255,0.1);
+    box-shadow: 0 0 40px rgba(8,7,16,0.6);
+	}
+}
+
+.sidebar a{
+	width: 100%;
+	padding: 10px 25px;
+	text-decoration: none;
+	display: block;
+	color: #003366;
+}
+i{
+	padding-right: 15px;
+	 color: #003366;
+	 
+	
+}
+
+.sidebar a:hover{
+	background: #81a8a8;
+}
+.content{
+	margin-left:20%;
+	
+	height: 100%;
+}

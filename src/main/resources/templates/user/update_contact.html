@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+	th:replace="~{user/base::layout(~{::section})}">
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+</head>
+<body>
+	<section>
+		<div class="card">
+			<div class="card-body">
+				<h3 class="text-center">Update Contact</h3>
+				<div class="row">
+					<div class="col-md-8 offset-md-2">
+						<form th:action="@{/user/process-update-contact}"
+							th:object="${contact}" enctype="multipart/form-data"
+							method="post">
+							
+							<div class="container">
+							<img th:src="" alt="" />
+							</div>
+
+							<!-- Name field -->
+							<div class="input-group">
+								<div class="input-group-prepend">
+									<div class="input-group-text mr-3">
+										<i class="fa-solid fa-diamond"></i>
+									</div>
+								</div>
+								<input th:value="${contact.name}" type="text" class="form-control" placeholder="Enter name"
+									name="name" />
+							</div>
+
+							<!-- nickName field -->
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text mr-3">
+										<i class="fa-solid fa-diamond"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control"
+									placeholder="Enter Nickname" name="nickName" th:value="${contact.nickName}" />
+							</div>
+
+							<!-- email field -->
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text mr-3">
+										<i class="fa-solid fa-envelope"></i>
+									</div>
+								</div>
+								<input type="email" class="form-control"
+									placeholder="Enter email" name="email" th:value="${contact.email}" />
+							</div>
+
+							<!-- phone field -->
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text mr-3">
+										<i class="fa-solid fa-phone"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control"
+									placeholder="Enter phone nmber" name="phone"  th:value="${contact.phone}"/>
+							</div>
+
+							<!-- Work field -->
+							<div class="input-group mt-3">
+								<div class="input-group-prepend">
+									<div class="input-group-text mr-3">
+										<i class="fa-solid fa-briefcase"></i>
+									</div>
+								</div>
+								<input type="text" class="form-control" placeholder="Work"
+									name="work" th:value="${contact.work}"/>
+							</div>
+
+							<!-- about field -->
+							<div class="input-group mt-3">
+								<textarea rows="3" cols="" class="form-control"
+									placeholder="Descrption" name="about" th:text="${contact.about}"></textarea>
+							</div>
+
+							<!-- image field -->
+							<div class="input-group mt-3">
+								<input type="file" name="profileImage">
+							</div>
+							<div class="container text-center">
+								<button type="submit" class="btn btn-outline-success">Save</button>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</section>
+</body>
+</html>

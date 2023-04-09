@@ -147,8 +147,17 @@ public class UserController {
 	public  String updateContact(@PathVariable("id") Integer id, Model model) {
 		Contact contact = contactRepository.findById(id).get();
 		model.addAttribute("contact", contact);
+		System.out.println("--------"+contact.getName()+"----------");
 		model.addAttribute("title", "Update Contact . Contact Manager");
 		return "user/update_contact";
 	}
+	@PostMapping("/process-update")
+	public String processUpdateContact(@ModelAttribute Contact contact, @RequestParam("profileImage") MultipartFile file) {
+			
+		//// save Contact in User contact list
+
+		return "redirect:/user/view-contacts/0";
+	}
+
 
 }

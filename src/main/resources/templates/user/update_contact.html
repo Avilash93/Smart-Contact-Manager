@@ -12,12 +12,16 @@
 				<h3 class="text-center">Update Contact</h3>
 				<div class="row">
 					<div class="col-md-8 offset-md-2">
-						<form th:action="@{/user/process-update-contact}"
+						<form th:action="@{/user/process-update}"
 							th:object="${contact}" enctype="multipart/form-data"
 							method="post">
 							
-							<div class="container">
-							<img th:src="" alt="" />
+							<!-- Profile image -->
+							<div class="container text-center image-upload">
+							<label for="file-input">
+							<img id="id-update-profile-image" class="update_profile_images" th:src="@{'/images/'+${contact.imageUrl}}" alt="" />
+							</label>
+							<input type="file" id="file-input"  onchange="readURL(this);"/>
 							</div>
 
 							<!-- Name field -->
@@ -28,7 +32,7 @@
 									</div>
 								</div>
 								<input th:value="${contact.name}" type="text" class="form-control" placeholder="Enter name"
-									name="name" />
+									name="name"/>
 							</div>
 
 							<!-- nickName field -->

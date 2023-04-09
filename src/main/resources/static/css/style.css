@@ -82,6 +82,26 @@ font-family: 'Roboto Mono', monospace;
 	object-fit:cover;
 }
 
-
+/* update-profile-image */
+.update_profile_images{
+	height: 50px;
+	width: 50px;
+	object-fit:cover;
+	margin-bottom:5px;
+	border-style: 1px;
+	border-style:inherit;
+	border-color:black;
+	border-radius:25px;
+	cursor: pointer;
+	
+}
+.update_profile_images:hover{
+	box-shadow: 3px 3px 10px rgba(0,0,0,0.50);
+	
+}
+/* Custom input file icon */
+.image-upload>input{
+	display: none;
+}
 
 
